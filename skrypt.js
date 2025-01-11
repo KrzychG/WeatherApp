@@ -157,16 +157,20 @@ function drawChart(data) {
     }
 
     weatherChart = new Chart(ctx, {
-        type: "bar",
+        type: "line",
         data: {
             labels: dayLabels,
             datasets: [
                 {
                     label: "Średnia temperatura (°C)",
                     data: dayTemps,
-                    backgroundColor: "rgba(75, 192, 192, 0.2)",
+                    backgroundColor: "rgba(34, 250, 250, 0.6)",
                     borderColor: "rgba(75, 192, 192, 1)",
-                    borderWidth: 1,
+                    borderWidth: 4,
+                    pointBackgroundColor: "rgba(75, 192, 192, 1)",
+                    pointBorderColor: "#fff",
+                    pointHoverBackgroundColor: "#fff",
+                    pointHoverBorderColor: "rgba(75, 192, 192, 1)",
                 },
             ],
         },
@@ -194,6 +198,23 @@ function drawChart(data) {
                         bottom: 30,
                     },
                 },
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            return `${context.dataset.label}: ${context.raw}°C`;
+                        },
+                    },
+                },
+                datalabels: {
+                    display: true,
+                    align: 'top',
+                    formatter: function (value) {
+                        return `${value}°C`;
+                    },
+                    font: {
+                        size: 16,
+                    },
+                },
             },
             scales: {
                 y: {
@@ -206,6 +227,7 @@ function drawChart(data) {
                 },
             },
         },
+        plugins: [ChartDataLabels],
     });
 }
 
