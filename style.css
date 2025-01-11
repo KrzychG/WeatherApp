@@ -1,0 +1,241 @@
+﻿#pogoda {
+    display: none; 
+}
+
+#weatherChart {
+    display: none;
+}
+
+#historyContainer {
+    display: none;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+body {
+    background-color: #e8f4fc; 
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #333; 
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    color: #005b96; 
+    font-size: 2.5rem;
+    margin-top: 20px;
+    font-weight: 700;
+}
+
+.tlo {
+    background-image: linear-gradient(to bottom, rgba(0, 91, 150, 0.7), rgba(0, 91, 150, 0.3)), url('./images/default.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.weather-info {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 0px; 
+    border-radius: 10px;
+    text-align: center; 
+    width: 50%;
+}
+
+    .weather-info h1 {
+        font-size: 2.5rem; 
+        margin: 0;
+        font-weight: 700;
+    }
+
+    .weather-info p {
+        font-size: 1.2rem; 
+        margin-top: 10px;
+    }
+
+input, button {
+    padding: 12px 18px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin-top: 15px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    font-family: 'Roboto', sans-serif;
+}
+
+input {
+    width: 320px;
+    border: 2px solid #aaa;
+    transition: border-color 0.3s ease-in-out;
+}
+
+    input:focus {
+        border-color: #005b96;
+        box-shadow: 0 0 10px rgba(0, 91, 150, 0.3);
+    }
+
+button {
+    background-color: #005b96;
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    button:hover {
+        background-color: #003f6e;
+    }
+
+#historyContainer {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    width: 90%;
+    max-width: 600px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+    #historyContainer h3 {
+        font-size: 1.4rem;
+        color: #005b96;
+        margin-bottom: 15px;
+    }
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    background-color: #f1f1f1;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+    li:hover {
+        background-color: #e0e0e0;
+        transform: translateY(-3px);
+    }
+
+#pogoda {
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 600px; 
+    width: 90%; 
+    margin: 20px auto; 
+    text-align: left;
+    font-size: 1rem;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.pogoda-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+    .pogoda-info .ikonka {
+        flex-shrink: 0;
+        margin-left: 20px;
+    }
+
+    .pogoda-info h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: #005b96;
+    }
+
+    .pogoda-info p {
+        margin: 5px 0;
+        font-size: 1.1rem;
+    }
+
+.pogoda-details {
+    margin-top: 10px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+    .pogoda-details p {
+        margin: 5px 0;
+    }
+
+#weatherChart {
+    max-height: 300px;
+    height: 300px;
+    width: 90%;
+    margin: 20px auto;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    padding: 10px;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+#map {
+    width: 90%; 
+    height: 400px; 
+    margin: 20px auto; 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd;
+    overflow: hidden; 
+    background-color: #f0f8ff;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .tlo {
+        height: 250px;
+    }
+
+    .tekst {
+        margin-left: 5%;
+        max-width: 90%;
+    }
+
+    input {
+        width: 90%;
+    }
+
+    button {
+        margin-top: 10px;
+    }
+}
